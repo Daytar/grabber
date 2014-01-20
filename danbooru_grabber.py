@@ -145,8 +145,9 @@ class Grabber():
                     if tag in self.blacklist:
                         self.blacklist.remove(tag)
                 print ("Before:", self.total_post_count)
-                for post in self.total_result:
-                    post["is_blacklisted"] = False
+            for post in self.total_result:
+                post["is_blacklisted"] = False
+                if method is "tag":
                     for tag in self.blacklist:
                         if tag in post["tag_string"] and not post["is_blacklisted"]:
                             post["is_blacklisted"] = True
